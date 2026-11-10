@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#080d12" />
+  <title>DARK EXTRACTION</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-root">
+    <canvas id="game"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">D</span><div><b>DARK<span> EXTRACTION</span></b><small>FRONTIER OPERATIONS // 04</small></div></div>
+      <div class="top-right"><div class="network"><i></i> LOCAL LINK</div><div class="profile"><span class="rank">R</span><div><b>ROOKIE</b><small id="level-label">LEVEL 01</small></div></div></div>
+    </header>
+
+    <section id="base-screen" class="base-screen">
+      <div class="base-copy"><div class="eyebrow"><i></i> SAFEHOUSE // SECTOR 09</div><h1>THE LAST<br/><em>LIGHT</em></h1><p>Recover what the dead left behind.<br/>Get in. Get out. Stay alive.</p><div class="base-stats"><div><small>CREDITS</small><b id="base-credits">₡ 350</b></div><div><small>OPERATIVE</small><b id="base-xp">LVL 01 · 0 XP</b></div><div><small>EXTRACTIONS</small><b id="base-extractions">00</b></div></div><button id="deploy-btn" class="primary-btn"><span>▶</span> DEPLOY TO THE YARD <i>01</i></button><div class="base-hint">MISSION BRIEFING <span>5 MIN · HIGH RISK · GOOD PAY</span></div></div>
+      <div class="base-nav"><button data-panel="inventory" class="nav-btn"><span>▤</span> LOADOUT</button><button data-panel="shop" class="nav-btn"><span>⌘</span> QUARTERMASTER</button><button data-panel="upgrade" class="nav-btn"><span>⬡</span> AUGMENTATION</button></div>
+      <div class="base-location"><span class="location-line"></span><b>OUTPOST KESTREL</b><small>FRONTIER ZONE · 6.2 KM</small></div>
+    </section>
+
+    <section id="hud" class="hud hidden">
+      <div class="mission-card"><div class="mission-icon">⌖</div><div><small id="mission-mode">CONTRACT // SALVAGE</small><b id="mission-timer">05:00</b></div><div class="mission-divider"></div><div><small>EXTRACT</small><b id="extract-dist">—</b></div></div>
+      <div class="objective"><span class="obj-dot"></span><div><b id="objective-title">SECURE THE YARD</b><small id="objective-copy">Search containers · Extract to keep your haul</small></div></div>
+      <div class="hud-right"><div class="loot-chip">HAUL <b id="haul-value">₡ 0</b></div><button id="inv-toggle" class="icon-btn">▤ <span>PACK</span></button></div>
+      <div class="player-readout"><div class="health-row"><span>VITALS</span><b id="health-text">100</b></div><div class="health-track"><i id="health-fill"></i></div><div class="armor-row"><span>ARMOR</span><b id="armor-text">25</b><div class="armor-track"><i id="armor-fill"></i></div></div></div>
+      <div class="weapon-readout"><div class="weapon-name"><small id="weapon-label">SERVICE PISTOL</small><span id="reload-state"></span></div><div class="ammo"><b id="ammo-now">12</b><span>/ <i id="ammo-reserve">36</i></span><button id="reload-btn" class="tiny-button">R</button></div></div>
+      <div class="crosshair"><i></i><b></b><i></i><em></em></div>
+      <div id="toast" class="toast"></div>
+      <div id="inventory-panel" class="inventory-panel hidden"><div class="panel-head"><div><small>FIELD STORAGE</small><h2>BACKPACK <span id="slot-count">00 / 12</span></h2></div><button class="close-btn" data-close>×</button></div><div id="loot-list" class="loot-list"></div><div class="inventory-foot"><span>UNSECURED HAUL</span><b id="inventory-value">₡ 0</b></div></div>
+      <div class="mobile-controls">
+        <div class="stick-zone" id="stick-zone"><div class="stick-base"><div id="stick-knob"></div></div><span>MOVE</span></div>
+        <div class="touch-actions"><button id="aim-btn" class="action-btn aim-action">◎<small>AIM</small></button><button id="fire-btn" class="action-btn fire-action"><b>●</b><small>FIRE</small></button><button id="sprint-btn" class="action-btn"><b>»</b><small>SPRINT</small></button><button id="interact-btn" class="action-btn interact-action"><b>F</b><small id="interact-label">USE</small></button></div>
+      </div>
+      <div class="desktop-help">WASD MOVE <span>·</span> MOUSE AIM <span>·</span> CLICK FIRE <span>·</span> R RELOAD <span>·</span> E INTERACT <span>·</span> SHIFT SPRINT</div>
+    </section>
+
+    <div id="overlay" class="overlay hidden"><div class="dialog"><button class="close-btn dialog-close" data-close>×</button><div class="dialog-eyebrow">OUTPOST KESTREL // SUPPLY CHAIN</div><h2 id="dialog-title">LOADOUT</h2><p id="dialog-subtitle"></p><div id="dialog-content"></div></div></div>
+    <div id="result-screen" class="result-screen hidden"><div class="result-box"><div id="result-tag" class="eyebrow">MISSION COMPLETE</div><h2 id="result-title">EXTRACTED</h2><p id="result-copy"></p><div id="result-stats" class="result-stats"></div><button id="return-btn" class="primary-btn">RETURN TO SAFEHOUSE <i>↗</i></button></div></div>
+    <div id="damage-flash"></div>
+    <div id="mobile-rotate-hint">SWIPE RIGHT SIDE TO LOOK</div>
+  </div>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
